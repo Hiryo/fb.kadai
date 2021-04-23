@@ -1,2 +1,30 @@
-<h1>Users#new</h1>
-<p>Find me in app/views/users/new.html.erb</p>
+<h1>ようこそ！Facebook Cloneへ</h1>
+<% if @user.errors.any? %>
+	<div id="error_explanation">
+		<h2><%= pluralize(@user.errors.count, "error") %>件のエラーより <%= @user.name %> が登録されませんでした。</h2>
+		<ul>
+		<% @user.errors.full_messages.each do |message| %>
+			<li><%= message %></li>
+		<% end %>
+		</ul>
+	</div>
+<% end %>
+<%= form_with(model: @user, local: true ) do |f| %>
+<ul class="users_form_ul" style="list-style-type: none;" >
+  <li>
+    <%= f.label "お名前：" %><br>
+    <%= f.text_field :name %><br>
+  </li>
+  <li>
+  	<%= f.label "メールアドレス：" %><br>
+	  <%= f.text_field :email %><br>
+  </li>
+  <li>
+    <%= f.label "パスワード："  %><br>
+    <%= f.text_field :password %><br><br>
+  </li>
+  <li>
+    <%= f.submit "アカウント作成" %>
+  </li>
+</ul>
+<% end %>
