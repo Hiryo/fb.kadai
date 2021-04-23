@@ -1,7 +1,7 @@
-<h1>ようこそ！Facebook Cloneへ</h1>
+<h1>ふぇーすぶっく</h1>
 <% if @user.errors.any? %>
 	<div id="error_explanation">
-		<h2><%= pluralize(@user.errors.count, "error") %>件のエラーより <%= @user.name %> が登録されませんでした。</h2>
+		<h2><%= pluralize(@user.errors.count, "error") %>件のエラーにより、 <%= @user.name %> が登録出来ませんでした。</h2>
 		<ul>
 		<% @user.errors.full_messages.each do |message| %>
 			<li><%= message %></li>
@@ -12,19 +12,19 @@
 <%= form_with(model: @user, local: true ) do |f| %>
 <ul class="users_form_ul" style="list-style-type: none;" >
   <li>
-    <%= f.label "お名前：" %><br>
+    <%= f.label "Name：" %><br>
     <%= f.text_field :name %><br>
   </li>
   <li>
-  	<%= f.label "メールアドレス：" %><br>
+  	<%= f.label "Address：" %><br>
 	  <%= f.text_field :email %><br>
   </li>
   <li>
-    <%= f.label "パスワード："  %><br>
+    <%= f.label "Password："  %><br>
     <%= f.password_field :password %><br><br>
   </li>
   <li>
-    <%= f.submit "アカウント作成" %>
+    <%= f.submit "Create account" %>
   </li>
 </ul>
 <% end %>
