@@ -12,8 +12,8 @@
     <td><%= blog.content %></td>
     <td><%= blog.user.name %></td>
     <td><%= link_to '詳細を確認する', blog_path(blog.id) %></td>
-    <td><%= link_to "投稿を編集する", edit_blog_path(blog.id), data: {confirm: '編集するんすか？' } %></td>
-    <td><%= link_to '投稿を削除する', blog_path(blog.id), method: :delete ,data { confirm: 'ガチで消すんすか？' } %></td>
+    <td><%= link_to "投稿を編集する", edit_blog_path(blog.id), data: { confirm: '編集するんすか？' } %></td>
+    <td><%= link_to '投稿を削除する', blog_path(blog.id), method: :delete ,data: { confirm: 'ガチで消すんすか？' } %></td>
   </tr>
 <% end %>
 </table>

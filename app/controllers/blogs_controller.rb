@@ -1,4 +1,6 @@
 class BlogsController < ApplicationController
+  before_action :set_blog, only: [:show, :edit, :update, :destroy]
+
   def index
     @blogs = Blog.all
   end
@@ -8,17 +10,16 @@ class BlogsController < ApplicationController
   end
 
   def create
-    @blog.user_id = current_user.id
-    @blog = Blog.new(blog_params)
+    @blog = current_user.blogs.build(blog_params)
     if params[:back]
       render :new
     else
       if @blog.save
-      redirect_to blogs_path, notice: "投稿しました！"
-    else
-      render :new
+        redirect_to blogs_path, notice: "投稿しました！"
+      else
+        render :new
+      end
     end
-   end
   end
 
   def show
@@ -37,7 +38,7 @@ class BlogsController < ApplicationController
   end
 
   def destroy
-    @blog.def destroy
+    @blog.destroy
     redirect_to blogs_path, notice:"ブログを削除しました！"
   end
 
@@ -48,8 +49,7 @@ class BlogsController < ApplicationController
 
   private
   def blog_params
-    params.require(:blog).permit(:title, :content, :user_id)
-    params.require(:feed).permit(:image, :image_cache)
+    params.require(:blog).permit(:title, :content, :user_id, :image, :image_cache)
   end
 
   def set_blog

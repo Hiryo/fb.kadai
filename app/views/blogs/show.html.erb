@@ -14,9 +14,9 @@
 <p id="notice"><%= notice %></p>
 <p>
   <strong>Image:</strong>
-  <%= image_tag @feed.image.url %>
+  <%= image_tag @blog.image.url if @blog.image.present?%>
 </p>
-<%= link_to 'Edit', edit_feed_path(@feed) %>
-<%= link_to 'Back', feeds_path %>
+<%= link_to 'Edit', edit_blog_path(@blog) %>
+<%= link_to 'Back', blogs_path %>
 
 <%= link_to "一覧画面に戻る", blogs_path %>
