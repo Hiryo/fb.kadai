@@ -1,8 +1,18 @@
-<h1>Login</h1>
+<div id="sessions_title">
+  <h1>Login</h1>
+</div>
 <%= form_with(scope: :session, url: sessions_path, local: true) do |f| %>
-  <%= f.label :email %>
-  <%= f.email_field :email %>
-  <%= f.label :password %>
-  <%= f.password_field :password %>
-  <%= f.submit "Login" %>
+  <ul class="login" style="list-style-type: none;">
+    <li>
+      <%= f.label :email %>
+      <%= f.email_field :email %><br><br>
+    </li>
+    <li>
+      <%= f.label :password %>
+      <%= f.password_field :password %><br><br><br>
+    </li>
+    <li>
+      <%= f.submit "Login" %>
+    </li>
+  </ul>
 <% end %>

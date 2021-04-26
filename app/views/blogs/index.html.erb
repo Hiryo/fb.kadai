@@ -1,21 +1,28 @@
-<h1>一覧</h1>
+<br>
+<br>
+<div id="new_blog">
+<%= link_to '新規投稿', new_blog_path %>
+</div>
 <p><%= notice %></p>
 <table>
+  <div class="text_blogs">
   <tr>
     <th>タイトル</th>
     <th>内容</th>
     <th>投稿者</th>
+    <th>画像</th>
   </tr>
+</div>
+  <p>
 <% @blogs.each do |blog| %>
+  </p>
+  <div class="content_blogs">
   <tr>
     <td><%= blog.title %></td>
     <td><%= blog.content %></td>
     <td><%= blog.user.name %></td>
     <td><%= link_to '詳細を確認する', blog_path(blog.id) %></td>
-    <td><%= link_to "投稿を編集する", edit_blog_path(blog.id), data: { confirm: '編集するんすか？' } %></td>
-    <td><%= link_to '投稿を削除する', blog_path(blog.id), method: :delete ,data: { confirm: 'ガチで消すんすか？' } %></td>
   </tr>
+</div>
 <% end %>
 </table>
-<br>
-<%= link_to '新規投稿', new_blog_path %>

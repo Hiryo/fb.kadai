@@ -8,6 +8,7 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
+      session[:user_id] = @user.id
       redirect_to user_path(@user.id)
     else
       render :new
@@ -16,6 +17,7 @@ class UsersController < ApplicationController
 
   def show
     @users = User.find(params[:id])
+    @favorites = current_user.favorites.all
   end
 
   private

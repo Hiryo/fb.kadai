@@ -1,4 +1,6 @@
-<h1>ふぇーすぶっく</h1>
+<div id="users_title">
+  <h1>Sign up</h1>
+</div>
 <% if @user.errors.any? %>
 	<div id="error_explanation">
 		<h2><%= pluralize(@user.errors.count, "error") %>件のエラーにより、 <%= @user.name %> が登録出来ませんでした。</h2>
@@ -12,16 +14,16 @@
 <%= form_with(model: @user, local: true ) do |f| %>
 <ul class="users_form_ul" style="list-style-type: none;" >
   <li>
-    <%= f.label "Name：" %><br>
-    <%= f.text_field :name %><br>
+    <%= f.label "Name" %>
+    <%= f.text_field :name %><br><br>
   </li>
   <li>
-    <%= f.label "Email address：" %><br>
-    <%= f.text_field :email %><br>
+    <%= f.label "Email address" %>
+    <%= f.text_field :email %><br><br>
   </li>
   <li>
-    <%= f.label "Password："  %><br>
-    <%= f.password_field :password %><br><br>
+    <%= f.label "Password"  %>
+    <%= f.password_field :password %><br><br><br>
   </li>
   <li>
     <%= f.submit "Create account" %>

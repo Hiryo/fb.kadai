@@ -1,4 +1,23 @@
-<h1><%= @users.name %>のページ</h1>
-<p>メールアドレス：<%= @users.email %></p>
+<div class="user_page">
+  <table>
+    <% if @favorites.empty? %>
+      <h2>お気に入りはありません。</h2>
+    <% else %>
+      <h2>お気に入り</h2>
+      <tr>
+        <th>タイトル</th>
+        <th>内容</th>
+        <th>投稿者</th>
+      </tr>
+    <% end %>
 
+  <% @favorites.each do |f| %>
+    <tr>
+      <td><%= f.blog.title %></td>
+      <td><%= f.blog.content %></td>
+      <td><%= f.blog.user.name %></td>
+    </tr>
+  <% end %>
+  </table>
 <%= link_to "一覧へ", blogs_path%>
+</div>
