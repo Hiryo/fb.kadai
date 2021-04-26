@@ -20,10 +20,13 @@
   </div>
   <div class="blog_title">
     <%= f.label :image %>
+    <%= image_tag(@blog.image.url) if @blog.image && @blog.image.url  %>
     <%= f.file_field :image %>
+    <%= f.hidden_field :image_cache %>
   </div>
-
+  <div class="actions">
   <%= f.submit %>
+  </div>
 <% end %>
 
 <%= link_to "一覧画面に戻る", blogs_path %>
